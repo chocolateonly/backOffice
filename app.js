@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const House=require('./src/routes/house');
+const bodyParser = require("body-parser");//define req.body type
 
 const db=require('./src/db');
 //test db
@@ -13,7 +14,10 @@ db.sequelize
     console.error('Unable to connect to the database:', err);
   });
 
-app.use('/api/house',House());
+app.use(bodyParser.json({limit:null}));
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use('/api/house',House);
 
 
 app.use(function(req, res, next) {
