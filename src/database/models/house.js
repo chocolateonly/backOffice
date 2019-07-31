@@ -1,31 +1,26 @@
-const {
-  sequelize,
-  Sequelize
-}=require('./../../db');
-
-const House = sequelize.define('house', {
+const House = (sequelize,DataTypes)=>sequelize.define('house', {
   // attributes
   owner: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   address: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
-/*  houseType: {
-    type: Sequelize.STRING
+  houseType: {
+    type: DataTypes.STRING
   },
   tel: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   rentOutStartTime: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   rentOutEndTime: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   status:{
-    type: Sequelize.STRING
-  },*/
+    type: DataTypes.STRING
+  },
 
 }, {
   // options
