@@ -3,7 +3,7 @@ const app = express();
 const House=require('./src/routes/house');
 const bodyParser = require("body-parser");//define req.body type
 
-const db=require('./src/db');
+const db=require('./src/dbConnection');
 //test db
 db.sequelize
   .sync()
@@ -36,4 +36,4 @@ app.use(function(req, res, next) {
     });*/
   });
 //}
-app.listen(3000);
+app.listen(2323);
