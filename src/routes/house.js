@@ -3,7 +3,18 @@ const db = require('../dbConnection');
 const House = db.House;
 
 const router = express.Router();
-
+router.get('/list', async (req, res, next) => {
+  try {
+    const data = await House.findAll({
+      order:[['createdAt','DESC']]
+    });
+    const body = {status: 'success', data};
+    res.json(body);
+    console.log(JSON.stringify(body));
+  } catch (err) {
+    next(err)
+  }
+});
 router.post('/', async (req, res, next) => {
   try {
     console.log('---------');
