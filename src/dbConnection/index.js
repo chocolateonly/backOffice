@@ -15,6 +15,7 @@ const db = {
 };
 
 db.House=db.sequelize.import('./../database/models/house');
-
+db.User=db.sequelize.import('./../database/models/user');
+db.Project=db.sequelize.import('./../database/models/project');
 
 module.exports=db;

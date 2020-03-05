@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const House=require('./src/routes/house');
+const Project=require('./src/routes/projects')
 const bodyParser = require("body-parser");//define req.body type
 
 const db=require('./src/dbConnection');
@@ -18,7 +19,7 @@ app.use(bodyParser.json({limit:null}));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/api/house',House);
-
+app.use('/api/project',Project);
 
 app.use(function(req, res, next) {
   const err = new Error('Not Found');
